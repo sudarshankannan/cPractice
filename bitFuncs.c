@@ -11,19 +11,18 @@ void printBitAt(int num, int bitPlace){
 }
 //printBitsInReverse
 void printAllBits(int num){
-    int count = 0;
-    int temp;
-    int valAtBit;
-    int output;
+    unsigned int temp, testnum =num;
+    int size = sizeof(testnum) * 8;
+    unsigned int mask = 1<<(size-1);
     if(num==0){
-        printf("%d", 0);
-    }    
-    while(num>0){
-        temp = num;
-        output = temp & 1;
-        printf("%d", output);
-        num = num<<1;
+        printf("%u", 0);
     }
+    while(testnum>0){
+        temp = testnum;
+        printf("%u", temp & mask ? 1:0);
+        testnum = testnum<<1;
+    }
+    printf("\n");
 }
 //main method
 int main(){
