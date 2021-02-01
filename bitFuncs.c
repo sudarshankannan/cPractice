@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int insertion(int num1, int num2, int i, int j){
     // input: N=10000000000, M=10011, i=2, j=6
@@ -13,6 +14,31 @@ int insertion(int num1, int num2, int i, int j){
     //set num1 bits i-j with num2 bits
     return (num1 | num2);
 }
+//next number
+void nextNumber(int num){
+    //put num binary digits into array
+    int binary[32];
+    unsigned int temp, testnum=num;
+    int size = sizeof(testnum) * 8;
+    unsigned int mask = 1<<(size-1);
+    if(num==0){
+        printf("%u, %u", -1, 1);
+    }
+    int count = 0;
+    while(testnum>0){
+        temp = testnum;
+        binary[count++] = (temp & mask ? 1:0);
+        testnum = testnum<<1;
+    }
+    //
+    for(int i=0; i<32; i++){
+        if(binary[i] == 0){
+            
+            
+        }
+    }
+}
+
 //printBinary(double num)
 void printBinary(double num){
     char numString[32];
@@ -50,7 +76,7 @@ int flipToWin(int num){
     if(allZero == true){
         return 1;
     }
-    countArrIndex = 0;
+    int countArrIndex = 0;
     int oneCount = 0;
     for(int z=0; z<32; z++){
         if(allBits[z] == 1){
